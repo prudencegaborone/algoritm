@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 /**
  * Core Matching Algorithm
  */
-function findStudentMatches($orgId, $db) {
+function findStudentMatches($organization_ID, $db) {
     // Get organization requirements
     $org = $db->query("SELECT * FROM organizations WHERE id = $orgId")->fetch();
     $orgSkills = $db->query("SELECT skill FROM organization_skills WHERE org_id = $orgId")->fetchAll(PDO::FETCH_COLUMN);
