@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAMS - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">IAMS</div>
+                <div class="user-profile">
+                    <img src="images/user-avatar.png" alt="User  Avatar" class="avatar">
+                    <div class="user-info">
+                        <span class="user-name">John Doe</span>
+                        <span class="user-role">Student</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="attendance.html">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tasks.html">
+                            <i class="fas fa-tasks"></i>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="messages.html">
+                            <i class="fas fa-comments"></i>
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mentors.html">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Mentors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="nav-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <img src="images/user-avatar.png" alt="User " class="avatar-sm">
+                        <span>John Doe</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <h1 class="page-title">Dashboard Overview</h1>
+                
+                <!-- Stats Cards -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #4e73df;">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Days Completed</span>
+                            <span class="stat-value">24/90</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #1cc88a;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Tasks Completed</span>
+                            <span class="stat-value">12/18</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #f6c23e;">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Reports Submitted</span>
+                            <span class="stat-value">3/5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #e74a3b;">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-title">Pending Actions</span>
+                            <span class="stat-value">4</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content Row -->
+                <div class="content-row">
+                    <!-- Tasks Section -->
+                    <div class="content-col wide">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Recent Tasks</h2>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="task-list">
+                                    <div class="task-item complete">
+                                        <div class="task-checkbox">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h3>Weekly Progress Report</h3>
+                                            <p>Due: May 15, 2023</p>
+                                        </div>
+                                        <div class="task-actions">
+                                            <span class="task-status completed">Completed</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="task-item urgent">
+                                        <div class="task-checkbox">
+                                            <i class="far fa-circle"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h3>Project Documentation</h3>
+                                            <p>Due: May 20, 2023</p>
+                                        </div>
+                                        <div class="task-actions">
+                                            <span class="task-status urgent">Urgent</span>
+                                            <button class="btn btn-small">Submit</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="task-item">
+                                        <div class="task-checkbox">
+                                            <i class="far fa-circle"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h3>Mid-Term Evaluation</h3>
+                                            <p>Due: June 1, 2023</p>
+                                        </div>
+                                        <div class="task-actions">
+                                            <span class="task-status pending">Pending</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Attendance Summary</h2>
+                                <div class="time-period">
+                                    <span>May 2023</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="attendance-chart">
+                                    <div class="chart-placeholder">
+                                        <img src="images/attendance-chart.png" alt="Attendance Chart">
+                                    </div>
+                                    <div class="attendance-stats">
+                                        <div class="attendance-stat">
+                                            <span class="stat-value">92%</span>
+                                            <span class="stat-label">Attendance Rate</span>
+                                        </div>
+                                        <div class="attendance-stat">
+                                            <span class="stat-value">2</span>
+                                            <span class="stat-label">Absences</span>
+                                        </div>
+                                        <div class="attendance-stat">
+                                            <span class="stat-value">1</span>
+                                            <span class="stat-label">Late Arrivals</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Sidebar -->
+                    <div class="content-col narrow">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Upcoming Events</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="event-list">
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <span class="event-day">18</span>
+                                            <span class="event-month">May</span>
+                                        </div>
+                                        <div class="event-details">
+                                            <h3>Meeting with Supervisor</h3>
+                                            <p>10:00 AM - 11:30 AM</p>
+                                            <span class="event-location">Conference Room B</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <span class="event-day">22</span>
+                                            <span class="event-month">May</span>
+                                        </div>
+                                        <div class="event-details">
+                                            <h3>Progress Presentation</h3>
+                                            <p>2:00 PM - 3:30 PM</p>
+                                            <span class="event-location">Main Auditorium</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="event-item">
+                                        <div class="event-date">
+                                            <span class="event-day">25</span>
+                                            <span class="event-month">May</span>
+                                        </div>
+                                        <div class="event-details">
+                                            <h3>Workshop: Professional Skills</h3>
+                                            <p>9:00 AM - 12:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="view-calendar">
+                                    <i class="fas fa-calendar-alt"></i> View Full Calendar
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Recent Messages</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="message-list">
+                                    <div class="message-item unread">
+                                        <img src="images/mentor-1.jpg" alt="Mentor" class="message-avatar">
+                                        <div class="message-content">
+                                            <div class="message-header">
+                                                <span class="message-sender">Dr. Smith</span>
+                                                <span class="message-time">2 hours ago</span>
+                                            </div>
+                                            <p class="message-preview">Please review the feedback on your latest report...</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="message-item">
+                                        <img src="images/mentor-2.jpg" alt="Mentor" class="message-avatar">
+                                        <div class="message-content">
+                                            <div class="message-header">
+                                                <span class="message-sender">Prof. Johnson</span>
+                                                <span class="message-time">1 day ago</span>
+                                            </div>
+                                            <p class="message-preview">Don't forget about tomorrow's meeting...</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="message-item">
+                                        <img src="images/mentor-3.jpg" alt="Mentor" class="message-avatar">
+                                        <div class="message-content">
+                                            <div class="message-header">
+                                                <span class="message-sender">Industry Supervisor</span>
+                                                <span class="message-time">3 days ago</span>
+                                            </div>
+                                            <p class="message-preview">The project documentation looks good...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="view-all-messages">
+                                    <i class="fas fa-envelope"></i> View All Messages
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
