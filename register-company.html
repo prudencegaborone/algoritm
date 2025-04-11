@@ -1,44 +1,345 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Sign Up Page</title>
-    <link rel="stylesheet" href="register.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar">
-        <div class="logo"><a href="IAMS Home Page.html">IAMS</a></div>
-        <ul class="nav-links">
-            <li><a href="IAMS Home Page.html">Home</a></li><br>
-        </ul>
-    </nav>
-    <br>
-    <br>
-    <header class="hero"> 
-        <h1>Organization Details</h1><br>
-    </header>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Organization Registration</title>
+  <link rel="stylesheet" href="register.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><a href="IAMS Home Page.html">IAMS</a></div>
+    <ul class="nav-links">
+      <li><a href="IAMS Home Page.html">Home</a></li>
+    </ul>
+  </nav>
+  
+  <header class="hero"> 
+    <h1>Organization Registration</h1>
+  </header>
+
+  <form id="registrationForm" action="organization_register.php" method="POST">
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+      <div class="step active">1. Basic Info</div>
+      <div class="step">2. Attachment</div>
+      <div class="step">3. Preferences</div>
+      <div class="step">4. Review</div>
+    </div>
+
+    <!-- Step 1: Basic Information -->
+    <div class="form-step active" id="step1">
+      <fieldset>
+        <legend>Organization Details</legend>
+        <div class="form-group">
+          <label for="organization_id">Organization ID:</label>
+          <input type="text" id="organization_id" name="organization_id" required>
+        </div>
+        <div class="form-group">
+          <label for="organization_name">Organization Name:</label>
+          <input type="text" id="organization_name" name="organization_name" required>
+        </div>
+        <div class="form-group">
+          <label for="organization_email">Organization Email:</label>
+          <input type="email" id="organization_email" name="organization_email" required>
+        </div>
+        <div class="form-group">
+          <label for="organization_phone">Phone Number:</label>
+          <input type="tel" id="organization_phone" name="organization_phone" required>
+        </div>
+        <div class="form-group">
+          <label for="organization_address">Address:</label>
+          <textarea id="organization_address" name="organization_address" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password:</label>
+          <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+      </fieldset>
+      <div class="form-actions">
+        <div></div>
+        <button type="button" class="next-btn" onclick="nextStep(1)">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Attachment Details -->
+    <div class="form-step" id="step2">
+      <fieldset>
+        <legend>Attachment Program Details</legend>
+        <div class="form-group">
+          <label for="students_needed">Number of students needed:</label>
+          <input type="number" id="students_needed" name="students_needed" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="duration">Duration:</label>
+          <select id="duration" name="duration" required>
+            <option value="">Select Duration</option>
+            <option value="3 months">3 months</option>
+            <option value="6 months">6 months</option>
+            <option value="1 year">1 year</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="start_date">Start Date:</label>
+          <input type="date" id="start_date" name="start_date" required>
+        </div>
+        <div class="form-group">
+          <label for="end_date">End Date:</label>
+          <input type="date" id="end_date" name="end_date" required>
+        </div>
+        <div class="radio-group">
+          <label>Is this a paid attachment?</label>
+          <div>
+            <input type="radio" name="is_paid" value="yes" id="paid_yes" required>
+            <label for="paid_yes">Yes</label>
+            <input type="radio" name="is_paid" value="no" id="paid_no">
+            <label for="paid_no">No</label>
+          </div>
+        </div>
+        <div id="stipend-container" style="display:none;">
+          <div class="form-group">
+            <label for="stipend">Stipend amount:</label>
+            <input type="number" id="stipend" name="stipend" min="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Program Description:</label>
+          <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="button" class="prev-btn" onclick="prevStep(2)">Previous</button>
+        <button type="button" class="next-btn" onclick="nextStep(2)">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Student Preferences -->
+    <div class="form-step" id="step3">
+      <fieldset>
+        <legend>Student Preferences</legend>
+        <div class="form-group">
+          <label for="required_skills">Required Skills (comma separated):</label>
+          <input type="text" id="required_skills" name="required_skills" placeholder="e.g., JavaScript, Python, React">
+        </div>
+        <div class="form-group">
+          <label for="minimum_gpa">Minimum GPA required:</label>
+          <input type="number" id="minimum_gpa" name="minimum_gpa" min="0" max="5" step="0.1" placeholder="0.0 to 5.0">
+        </div>
+        <div class="checkbox-group">
+          <label>Required Courses:</label>
+          <div>
+            <input type="checkbox" name="required_courses[]" value="Data Structures" id="course_ds">
+            <label for="course_ds">Data Structures</label>
+            <input type="checkbox" name="required_courses[]" value="Algorithms" id="course_algo">
+            <label for="course_algo">Algorithms</label>
+            <input type="checkbox" name="required_courses[]" value="Database Systems" id="course_db">
+            <label for="course_db">Database Systems</label>
+          </div>
+        </div>
+        <div class="checkbox-group">
+          <label>Preferred Year of Study:</label>
+          <div>
+            <input type="checkbox" name="year_of_study[]" value="2" id="year_2">
+            <label for="year_2">2nd Year</label>
+            <input type="checkbox" name="year_of_study[]" value="3" id="year_3">
+            <label for="year_3">3rd Year</label>
+            <input type="checkbox" name="year_of_study[]" value="4" id="year_4">
+            <label for="year_4">4th Year</label>
+          </div>
+        </div>
+        <div class="checkbox-group">
+          <label>Soft Skills Needed:</label>
+          <div>
+            <input type="checkbox" name="soft_skills[]" value="Communication" id="skill_comm">
+            <label for="skill_comm">Communication</label>
+            <input type="checkbox" name="soft_skills[]" value="Teamwork" id="skill_team">
+            <label for="skill_team">Teamwork</label>
+            <input type="checkbox" name="soft_skills[]" value="Problem Solving" id="skill_prob">
+            <label for="skill_prob">Problem Solving</label>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="button" class="prev-btn" onclick="prevStep(3)">Previous</button>
+        <button type="button" class="next-btn" onclick="nextStep(3)">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Review and Submit -->
+    <div class="form-step" id="step4">
+      <fieldset>
+        <legend>Review Your Information</legend>
+        <div id="review-content"></div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="button" class="prev-btn" onclick="prevStep(4)">Previous</button>
+        <button type="submit" class="next-btn">Submit Registration</button>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    // Navigation between steps
+    function nextStep(currentStep) {
+      if (validateStep(currentStep)) {
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        document.getElementById(`step${currentStep + 1}`).classList.add('active');
+        updateProgressIndicator(currentStep + 1);
+        
+        if (currentStep + 1 === 4) {
+          populateReviewContent();
+        }
+      }
+    }
+
+    function prevStep(currentStep) {
+      document.getElementById(`step${currentStep}`).classList.remove('active');
+      document.getElementById(`step${currentStep - 1}`).classList.add('active');
+      updateProgressIndicator(currentStep - 1);
+    }
+
+    function updateProgressIndicator(activeStep) {
+      const steps = document.querySelectorAll('.progress-indicator .step');
+      steps.forEach((step, index) => {
+        step.classList.remove('active');
+        if (index + 1 === activeStep) {
+          step.classList.add('active');
+        }
+      });
+    }
+
+    // Step validation
+    function validateStep(stepNumber) {
+      let isValid = true;
+      const currentStep = document.getElementById(`step${stepNumber}`);
+      const requiredInputs = currentStep.querySelectorAll('[required]');
+      
+      // Reset error styles
+      currentStep.querySelectorAll('.error-field').forEach(el => {
+        el.classList.remove('error-field');
+      });
+      currentStep.querySelectorAll('.error').forEach(el => {
+        el.remove();
+      });
+
+      // Validate required fields
+      requiredInputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.classList.add('error-field');
+          const errorMsg = document.createElement('span');
+          errorMsg.className = 'error';
+          errorMsg.textContent = 'This field is required';
+          input.parentNode.insertBefore(errorMsg, input.nextSibling);
+          isValid = false;
+        }
+      });
+
+      // Special validation for password match
+      if (stepNumber === 1) {
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+        
+        if (password !== confirmPassword) {
+          const confirmPassInput = document.getElementById('confirm_password');
+          confirmPassInput.classList.add('error-field');
+          const errorMsg = document.createElement('span');
+          errorMsg.className = 'error';
+          errorMsg.textContent = 'Passwords do not match';
+          confirmPassInput.parentNode.insertBefore(errorMsg, confirmPassInput.nextSibling);
+          isValid = false;
+        }
+      }
+
+      // Special validation for end date after start date
+      if (stepNumber === 2) {
+        const startDate = new Date(document.getElementById('start_date').value);
+        const endDate = new Date(document.getElementById('end_date').value);
+        
+        if (startDate && endDate && endDate < startDate) {
+          const endDateInput = document.getElementById('end_date');
+          endDateInput.classList.add('error-field');
+          const errorMsg = document.createElement('span');
+          errorMsg.className = 'error';
+          errorMsg.textContent = 'End date must be after start date';
+          endDateInput.parentNode.insertBefore(errorMsg, endDateInput.nextSibling);
+          isValid = false;
+        }
+      }
+
+      return isValid;
+    }
+
+    // Populate review content
+    function populateReviewContent() {
+      const form = document.getElementById('registrationForm');
+      const reviewContent = document.getElementById('review-content');
+      let html = '<h3>Please review your information:</h3><ul>';
+      
+      // Basic Info
+      html += '<li><strong>Organization Name:</strong> ' + form.organization_name.value + '</li>';
+      html += '<li><strong>Email:</strong> ' + form.organization_email.value + '</li>';
+      html += '<li><strong>Phone:</strong> ' + form.organization_phone.value + '</li>';
+      html += '<li><strong>Address:</strong> ' + form.organization_address.value + '</li>';
+      
+      // Attachment Details
+      html += '<li><strong>Students Needed:</strong> ' + form.students_needed.value + '</li>';
+      html += '<li><strong>Duration:</strong> ' + form.duration.value + '</li>';
+      html += '<li><strong>Start Date:</strong> ' + form.start_date.value + '</li>';
+      html += '<li><strong>End Date:</strong> ' + form.end_date.value + '</li>';
+      html += '<li><strong>Paid Attachment:</strong> ' + form.is_paid.value + '</li>';
+      if (form.is_paid.value === 'yes' && form.stipend.value) {
+        html += '<li><strong>Stipend Amount:</strong> ' + form.stipend.value + '</li>';
+      }
+      html += '<li><strong>Description:</strong> ' + form.description.value + '</li>';
+      
+      // Student Preferences
+      html += '<li><strong>Required Skills:</strong> ' + (form.required_skills.value || 'None specified') + '</li>';
+      if (form.minimum_gpa.value) {
+        html += '<li><strong>Minimum GPA:</strong> ' + form.minimum_gpa.value + '</li>';
+      }
+      
+      // Checkbox groups
+      const getCheckedLabels = (name) => {
+        const checked = [];
+        document.querySelectorAll(`input[name="${name}"]:checked`).forEach(cb => {
+          checked.push(cb.nextElementSibling.textContent);
+        });
+        return checked.length ? checked.join(', ') : 'None specified';
+      };
+      
+      html += '<li><strong>Required Courses:</strong> ' + getCheckedLabels('required_courses[]') + '</li>';
+      html += '<li><strong>Preferred Year:</strong> ' + getCheckedLabels('year_of_study[]') + '</li>';
+      html += '<li><strong>Soft Skills Needed:</strong> ' + getCheckedLabels('soft_skills[]') + '</li>';
+      
+      reviewContent.innerHTML = html + '</ul>';
+    }
+
+    // Show/hide stipend field based on paid selection
+    document.querySelectorAll('input[name="is_paid"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        document.getElementById('stipend-container').style.display = 
+          this.value === 'yes' ? 'block' : 'none';
+      });
+    });
+
+    // Initialize date inputs with reasonable defaults
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const nextMonth = new Date();
+      nextMonth.setMonth(today.getMonth() + 1);
+      
+      document.getElementById('start_date').min = today.toISOString().split('T')[0];
+      document.getElementById('end_date').min = today.toISOString().split('T')[0];
+      
+      // Set default start date to today and end date to next month
+      document.getElementById('start_date').valueAsDate = today;
+      document.getElementById('end_date').valueAsDate = nextMonth;
+    });
+  </script>
 </body>
-<footer>
-    <form action="organization_register.php" method="POST">
-        <fieldset>
-        <legend></legend>
-    <input type="text" name="organization_id" placeholder="Organization ID:" required><br>
-    <br>
-    <input type="text" name="organization_name" placeholder="Organization Name:" required><br>
-    <br>
-    <input type="text" name="organization_email" placeholder="Organization Email:"><br>
-    <br>
-    <input type="text" name="organization_phone" placeholder="Organization Phone Number:"><br>
-    <br>
-    <textarea name="organization_address" placeholder="Organization Address:" rows="3"></textarea><br>
-    <br>
-    <input type="password" name="password" placeholder="Enter Password:" required><br>
-    <br>
-    <button type="submit" onclick="window.location.href='organization_preferences.html'">Next</button>
-    </fieldset>
-    </form>
-    <p></p>
-    </footer>
 </html>

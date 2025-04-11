@@ -1,0 +1,389 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Body Styles */
+body {
+  color: #333;
+  text-align: center;
+  background-image: url('./tech.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(181, 181, 181, 0.7);
+  padding: 15px 20px;
+  position: relative;
+  z-index: 100;
+}
+
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+.nav-links .btn {
+  padding: 10px 15px;
+  background: #ff6600;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.nav-links .btn:hover {
+  background: #cc5500;
+}
+
+/* Hero Section */
+.hero {
+  padding: 2rem;
+  margin-top: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: white;
+  animation: fadeInDown 1s ease-in-out;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Form Container */
+#registrationForm {
+  max-width: 800px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.step {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem 0.5rem;
+  border-radius: 20px;
+  background-color: rgba(0, 64, 128, 0.7);
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  background-color: #ff6600;
+}
+
+/* Form Steps */
+.form-step {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* Fieldset Styling */
+fieldset {
+  border: 2px solid #004080;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+legend {
+  color: #004080;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0 15px;
+  background: white;
+  border: 2px solid #004080;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  color: #004080;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #004080;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: #333;
+  background-color: white;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+  background: rgba(0, 64, 128, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0, 64, 128, 0.2);
+}
+
+.radio-group label,
+.checkbox-group label {
+  color: #004080;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.radio-group div,
+.checkbox-group div {
+  margin-top: 10px;
+}
+
+/* Radio and Checkbox Styles */
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 10px;
+  width: auto;
+}
+
+.radio-group label[for],
+.checkbox-group label[for] {
+  display: inline-block;
+  font-weight: normal;
+  color: #333;
+  margin-right: 20px;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.next-btn {
+  background-color: #004080;
+  color: white;
+}
+
+.prev-btn {
+  background-color: #f1f1f1;
+  color: #004080;
+  border: 2px solid #004080;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.next-btn:hover {
+  background-color: #ff6600;
+}
+
+/* Error Styling */
+.error {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+input.error-field,
+select.error-field,
+textarea.error-field {
+  border-color: #e74c3c;
+}
+
+/* Review Step Styling */
+#review-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #004080;
+  text-align: left;
+}
+
+#review-content h3 {
+  color: #004080;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+#review-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#review-content li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#review-content strong {
+  color: #004080;
+  font-weight: bold;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      padding: 1rem;
+  }
+  
+  .nav-links {
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  
+  #registrationForm {
+      padding: 1rem;
+      margin: 1rem auto;
+  }
+  
+  .hero h1 {
+      font-size: 2rem;
+  }
+  
+  fieldset {
+      padding: 1rem;
+  }
+  
+  .step {
+      padding: 0.5rem;
+      margin: 0 0.2rem 0.5rem;
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  button {
+      width: 100%;
+  }
+  
+  .hero h1 {
+      font-size: 1.8rem;
+  }
+  
+  legend {
+      font-size: 1.1rem;
+  }
+}
