@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="register.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="logo"><a href="IAMS Home Page.html">IAMS</a></div>
+        <ul class="nav-links">
+            <li><a href="IAMS Home Page.html">Home</a></li><br>
+        </ul>
+    </nav>
+    <br>
+    <br>
+
+    <header class="hero"> 
+        <h1>Enter Your Details For Registration of IAMS</h1><br>
+    </header>
+  </body>
+  <footer>
+    <form action="register.php" method="POST">
+      <fieldset>
+        <legend></legend>
+        <input type="text" name="student_ID" placeholder="Student ID:" required><br>
+        <br>
+        <input type="text" name="firstname" placeholder="Firstname:" required><br>
+        <br>
+        <input type="text" name="surname" placeholder="Surname:" required><br>
+        <br>
+        <input type="text" name="mobile_number" placeholder="Mobile Number:" required><br>
+        <br>
+        <input type="text" name="address" placeholder="Address:" required><br>
+        <br>
+        <input type="email" name="email" placeholder="Email:" required><br>
+        <br>
+        <input type="password" name="password" placeholder="Enter Password:" required><br>
+        <br>
+        <br>
+        <button type="submit" onclick="window.location.href='student_preferences.html'">Next</button>
+    </fieldset>
+      </form>
+      <p>Already have an account? <a href="login.html" class="cta-btn">Login</a></p>
+      </footer>
+</html>

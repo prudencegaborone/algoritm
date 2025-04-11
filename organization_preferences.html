@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Student Preferences</title>
+    <link rel="stylesheet" href="preferences.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="IAMS Home Page.html">IAMS</a></div>
+        <ul class="nav-links">
+            <li><a href="IAMS Home Page.html">Home</a></li><br>
+        </ul>
+    </nav>
+    <br>
+    <header class="hero"> 
+        <h1>Organization Student Preferences</h1><br>
+    </header>
+    
+    <form action="submit_organization_preferences.php" method="POST">
+        <!-- Organization Information -->
+        
+        <div class="form-group"><br>
+            <input type="text" name="organization_ID" placeholder="Organization ID:" required><br>
+        <br>
+        </div>
+        
+        <!-- Preferred Student Characteristics -->
+        <div class="preference-section">
+            <h3>Preferred Student Characteristics</h3>
+            
+            <!-- Academic Requirements -->
+            <div class="form-group">
+                <input type="text" name="minimum_cpga_equirement" placeholder="Minimum CGPA Requirement:" required><br>
+            <br>
+            </div>
+        
+            <!-- <div class="form-group">
+                <label for="min_cgpa" class="required">Minimum CGPA Requirement</label>
+                <input type="number" id="min_cgpa" name="min_cgpa" min="2.0" max="4.0" step="0.1" required>
+            </div> -->
+
+            <div class="form-group">
+                <input type="text" name="preferred_academic_program" placeholder="Preferred Academic Program:" required><br>
+            </div>
+            
+            
+            <!-- <div class="form-group">
+                <label for="preferred_programs" class="required">Preferred Academic Programs</label>
+                <select id="preferred_programs" name="preferred_programs[]" multiple required>
+                    <option value="cs">Computer Science</option>
+                    <option value="it">Information Technology</option>
+                    <option value="is">Information Systems</option>
+                    <option value="se">Software Engineering</option>
+                    <option value="cf">Computing with Finance</option>
+                    <option value="other">Other (specify below)</option>
+                </select>
+                <input type="text" id="other_program" name="other_program" placeholder="Specify other program" style="margin-top: 10px; display: none;">
+            </div> -->
+            
+            <!-- Technical Skills -->
+<!--             <div class="form-group">
+                <label for="technical_skills">Required Technical Skills</label>
+                <div>
+                    <label for="skill_java">Java</label>
+                    <input type="checkbox" id="skill_java" name="technical_skills[]" value="java"><br>
+
+                    <label for="skill_python">Python</label>
+                    <input type="checkbox" id="skill_python" name="technical_skills[]" value="python"><br>
+                    
+                    <label for="skill_sql">SQL</label>
+                    <input type="checkbox" id="skill_sql" name="technical_skills[]" value="sql"><br>
+                    
+                    <label for="skill_web_development">Web Development</label>
+                    <input type="checkbox" id="skill_web_development" name="technical_skills[]" value="web_development"><br>
+                    
+                    <label for="skill_networking">Networking</label>
+                    <input type="checkbox" id="skill_networking" name="technical_skills[]" value="networking"><br>
+
+                </div>
+                <input type="text" id="other_skill" name="other_skill" placeholder="Specify other skill" style="margin-top: 10px; display: none;">
+            </div> -->
+        </div>
+        <button type="submit" class="btn">Submit Preferences</button>
+    </form>
+
+    <script>
+        // Show/hide other program field
+        document.getElementById('preferred_programs').addEventListener('change', function() {
+            const options = Array.from(this.selectedOptions);
+            const showOther = options.some(opt => opt.value === 'other');
+            document.getElementById('other_program').style.display = showOther ? 'block' : 'none';
+        });
+        
+        // Show/hide other skill field
+        document.getElementById('skill_other').addEventListener('change', function() {
+            document.getElementById('other_skill').style.display = this.checked ? 'block' : 'none';
+        });
+    </script>
+    <p></p>
+</body>
+</html>

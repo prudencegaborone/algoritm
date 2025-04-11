@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Attachment Preferences</title>
+    <link rel="stylesheet" href="preferences.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="IAMS Home Page.html">IAMS</a></div>
+        <ul class="nav-links">
+            <li><a href="IAMS Home Page.html">Home</a></li><br>
+        </ul>
+    </nav>
+    <br>
+    <header class="hero"> 
+        <h1>Industrial Attachment Preferences</h1><br>
+    </header>
+    </body>
+    <footer>
+        <form action="submit_student_preferences.php" method="POST">
+            <div class="form-group">
+                        <!-- Student Information -->
+        
+        <div class="form-group"><br>
+        <input type="text" name="student_ID" placeholder="Student ID:" required><br>
+        <br>
+        </div>
+            <div>
+            <input type="text" name="cumulative_grade_point_average" placeholder="Cumulative Grade Point Average:" required><br>
+        <br>
+            </div>
+            <br>
+
+            <div>
+                <input type="text" name="academic_program" placeholder="Academic Program:" required><br>
+            <br>
+                </div>
+<!--             <div class="form-group">
+                <label for="academic_program" class="required">Academic Program</label>
+                <select id="program" name="program" required>
+                    <option value="">Select Program</option>
+                    <option value="2">Computer Science</option>
+                    <option value="3">Computing with Finance</option>
+                    <option value="4">Information Technology</option>
+                    <option value="5">Information Systems</option>
+                </select>
+            </div> -->
+
+<!--             <div class="form-group">
+                <label for="technical_skills" class="required">Technical Skills</label>
+                <div>
+                    <label for="skill_java">Java</label>
+                    <input type="checkbox" id="skill_java" name="technical_skills[]" value="java"><br>
+
+                    <label for="skill_python">Python</label>
+                    <input type="checkbox" id="skill_python" name="technical_skills[]" value="python"><br>
+                    
+                    <label for="skill_sql">SQL</label>
+                    <input type="checkbox" id="skill_sql" name="technical_skills[]" value="sql"><br>
+                    
+                    <label for="skill_web_development">Web Development</label>
+                    <input type="checkbox" id="skill_web_development" name="technical_skills[]" value="web_development"><br>
+                    
+                    <label for="skill_networking">Networking</label>
+                    <input type="checkbox" id="skill_networking" name="technical_skills[]" value="networking"><br>
+
+                </div>
+            </div> -->
+            
+            <!-- Preferences -->
+            <div class="preference-section">
+                <h3>Preferences</h3>
+                
+                <!-- Organization Preference 1 -->
+                <!-- <div class="form-group">
+                    <label for="preference1" class="required">1st Preference</label>
+                    <select id="preference1" name="preference1" required>
+                        <option value="">Select Organization</option>
+                        <option value="org1">Orange Technologies</option>
+                        <option value="org2">FNB</option>
+                        <option value="org3">Botswana Power Corporation</option>
+                        <option value="org4">Sir Seretse Khama International Airport</option>
+                        <option value="org5">Debswana</option>
+                        <option value="other1">Other (please specify)</option>
+                    </select>
+                    <input type="text" id="preference1_other" name="preference1_other" placeholder="Specify other organization" style="margin-top: 10px; display: none;">
+                </div> -->
+                
+                <!-- Location Preference-->
+<!--                 <div class="form-group">
+                    <label for="preference2">1st Preference</label>
+                    <select id="preference2" name="preference2">
+                        <option value="">Select Preferred Location</option>
+                        <option value="org1">Gaborone</option>
+                        <option value="org2">Francistown</option>
+                        <option value="org3">Maun</option>
+                        <option value="org4">Kasane</option>
+                        <option value="org5">Molepolole</option>
+                        <option value="org5">Ramotswa</option>
+                        <option value="other2">Other (please specify)</option>
+                    </select>
+                    <input type="text" id="preference2_other" name="preference2_other" placeholder="Specify other organization" style="margin-top: 10px; display: none;">
+                </div> -->
+
+                <div class="form-group">
+                    <label for="preference2">Location Preference</label>
+                    <div class="form-group">
+                    <input type="text" name="location_preference:" placeholder="Enter location:" required><br>
+                    </div>
+                
+                <!-- Domain Preference 3 -->
+<!--                 <div class="form-group">
+                    <label for="preference3">2nd Preference</label>
+                    <select id="preference3" name="preference3">
+                        <option value="">Select Preferred Domain</option>
+                        <option value="org1">Software Development</option>
+                        <option value="org2">Networking</option>
+                        <option value="org3">Database Administration</option>
+                        <option value="org4">Web Development</option>
+                        <option value="org5">Cybersecurity</option>
+                    </select>
+                    <input type="text" id="preference3_other" name="preference3_other" placeholder="Specify other organization" style="margin-top: 10px; display: none;">
+                </div>
+            </div> -->
+
+            <div class="form-group">
+                <label for="preference2">Domain Preference</label>
+                <div class="form-group">
+                <input type="text" name="domain_preference:" placeholder="Enter doman:" required><br>
+                </div>
+            
+            
+            <button type="submit" class="btn">Submit Preferences</button>
+        </form>
+        <p></p>
+    </footer>
+    
+
+<!--     <script>
+        // Show/hide "Other" text fields when "Other" is selected
+        document.getElementById('preference1').addEventListener('change', function() {
+            document.getElementById('preference1_other').style.display = 
+                this.value === 'other1' ? 'block' : 'none';
+        });
+        
+        document.getElementById('preference2').addEventListener('change', function() {
+            document.getElementById('preference2_other').style.display = 
+                this.value === 'other2' ? 'block' : 'none';
+        });
+        
+        document.getElementById('preference3').addEventListener('change', function() {
+            document.getElementById('preference3_other').style.display = 
+                this.value === 'other3' ? 'block' : 'none';
+        });
+        
+        // Show/hide special needs details
+        document.getElementById('special_needs').addEventListener('change', function() {
+            document.getElementById('special_needs_details').style.display = 
+                this.value === 'yes' ? 'block' : 'none';
+        });
+        
+        // Set default dates (optional)
+        window.onload = function() {
+            const today = new Date();
+            const nextMonth = new Date();
+            nextMonth.setMonth(today.getMonth() + 1);
+            
+            document.getElementById('preferred_start').valueAsDate = nextMonth;
+            
+            const endDate = new Date(nextMonth);
+            endDate.setDate(nextMonth.getDate() + (12 * 7)); // 12 weeks default
+            document.getElementById('preferred_end').valueAsDate = endDate;
+        };
+    </script> -->
+    
+    <p></p>
+</html>
